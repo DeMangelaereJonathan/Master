@@ -1,14 +1,39 @@
-"use strict";
+$(function() {
+    $(".img-w").each(function() {
+        $(this).wrap("<div class='img-c'></div>");
+        let imgSrc = $(this).find("img").attr("src");
+        $(this).css('background-image', 'url(' + imgSrc + ')');
+    });
 
-function myFunction(imgs) {
-    // Get the expanded image
-    var expandImg = document.getElementById("expandedImg");
-    // Get the image text
-    var imgText = document.getElementById("imgtext");
-    // Use the same src in the expanded image as the image being clicked on from the grid
-    expandImg.src = imgs.src;
-    // Use the value of the alt attribute of the clickable image as text inside the expanded image
-    imgText.innerHTML = imgs.alt;
-    // Show the container element (hidden with CSS)
-    expandImg.parentElement.style.display = "block";
-}
+
+    $(".img-c").click(function() {
+        let w = $(this).outerWidth();
+        let h = $(this).outerHeight();
+        let x = $(this).offset().left;
+        let y = $(this).offset().top;
+
+
+        $(".active").not($(this)).remove();
+        let copy = $(this).clone();
+        copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active");
+        $(".active").css('top', y - 5);
+        $(".active").css('left', x - 2);
+
+        setTimeout(function() {
+            copy.addClass("positioned")
+        }, 0);
+
+    });
+
+
+
+
+});
+
+$(document).on("click", ".img-c.active", function() {
+    let copy = $(this);
+    copy.removeClass("positioned active").addClass("postactive");
+    setTimeout(function() {
+        copy.remove();
+    }, 500)
+});

@@ -14,58 +14,34 @@
 </head>
 <body  class="is-preload">
 
+<div class="gallery">
 
-<!-- The grid: four columns -->
-<div class="row">
-    <div class="column">
-        <img src="../../werken/auto/1.JPG" alt="auto" onclick="openImg(this);">
-    </div>
-    <div class="column">
-        <img src="../../werken/auto/2.JPG" alt="auto" onclick="openImg(this);">
-    </div>
-    <div class="column">
-        <img src="../../werken/auto/3.JPG" alt="auto" onclick="openImg(this);">
-    </div>
-    <div class="column">
-        <img src="../../werken/auto/4.JPG" alt="auto" onclick="openImg(this);">
-    </div>
-</div>
+    <!-- TO ADD NEW PHOTOS
+      <div class="img-w"><img src="../dimension/werken/auto/<NAME OF PHOTO>" title="<TITLE>" alt="<DESCR IF NOT LOADED>" /></div>
+      -->
+    <div class="img-w"><img src="../../werken/varia/1.JPG" alt="" /></div>
+    <div class="img-w"><img src="../../werken/varia/2.JPG" alt="" /></div>
+    <div class="img-w"><img src="../../werken/varia/3.JPG" alt="" /></div>
+    <div class="img-w"><img src="../../werken/varia/4.JPG" alt="" /></div>
 
-<!-- The expanding image container -->
-<div class="container">
-    <!-- Close the image -->
-    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-    <!-- Expanded image -->
-    <img id="expandedImg" style="width:100%">
-
-    <!-- Image text -->
-    <div id="imgtext"></div>
-</div>
-<div class="xop-section">
 
 </div>
+
+
+
 <!--
 LINK OM NAAR DE HOMEPAGINA TE GAAN (NAAR DE VORIGE PAGINA)
 <a href="homepage-nl.html">HOME</a>-->
 <!-- BG-->
 <div id="bg"></div>
-<script>
-function openImg(imgs) {
-var expandImg = document.getElementById("expandedImg");
-var imgText = document.getElementById("imgtext");
-expandImg.src = imgs.src;
-imgText.innerHTML = imgs.alt;
-expandImg.parentElement.style.display = "block";
-}
-</script>
+
         <!-- Scripts -->
 <script src="../../assets/js/jquery.min.js"></script>
 <script src="../../assets/js/browser.min.js"></script>
 <script src="../../assets/js/breakpoints.min.js"></script>
 <script src="../../assets/js/util.js"></script>
 <script src="../../assets/js/main.js"></script>
-<!--<script src="../../assets/js/galerij.js"></script>-->
+<script src="../../assets/js/galerij.js"></script>
 
 </body>
 

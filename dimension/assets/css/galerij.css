@@ -1,53 +1,65 @@
-/* The grid: Four equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 25%;
-    padding: 10px;
-}
-
-/* Style the images inside the grid */
-.column img {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.column img:hover {
-    opacity: 1;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* The expanding image container (positioning is needed to position the close button and the text) */
-.container {
+body {
+    padding: 50px 0;
     position: relative;
-    display: none;
 }
 
-/* Expanding image text */
-#imgtext {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    color: white;
-    font-size: 20px;
+.gallery {
+    width: 750px;
+    margin: auto;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
-/* Closable button inside the image */
-.closebtn {
+.img-c {
+    width: 250px;
+    height: 250px;
+    float: right;
+    position: relative;
+    overflow: auto;
+}
+
+.img-w {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-    font-size: 35px;
+    width: 95%;
+    height: 95%;
+    /*background-size:;*/
+    background-size: 115%;
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
+    transition: transform ease-in-out 300ms;
 }
 
-img{
-    width: 15%;
-    height:15%;
+.img-w img {
+    display: none;
+
+}
+
+.img-c {
+    transition: width ease 400ms, height ease 350ms, left cubic-bezier(0.4, 0, 0.2, 1) 420ms, top cubic-bezier(0.4, 0, 0.2, 1) 420ms;
+}
+
+.img-c:hover .img-w {
+    transform: scale(1.0);
+    transition: transform cubic-bezier(0.4, 0, 0.2, 1) 450ms;
+}
+
+.img-c.active {
+    width: 70% !important;
+    height: 70% !important;
+    position: absolute;
+    z-index: 2;
+}
+
+.img-c.postactive {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.img-c.active.positioned {
+    left: 150px !important;
+    top: 0 !important;
+    transition-delay: 50ms;
+
 }
